@@ -1,0 +1,17 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: balanceador
+  namespace: aplicacion
+spec:
+  rules:
+  - host: www.pagina.com
+    http:
+      paths:
+      - path: /
+        pathType: Prefix
+        backend:
+          service:
+            name: servicio
+            port:
+              number: 80
